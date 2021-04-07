@@ -7,7 +7,8 @@ mongoose.connect('mongodb://localhost/dailyDose', { useNewUrlParser: true, useUn
 
 app.set('view engine', 'ejs');
 
-app.use('/articles', articlesRouter)
+app.use(express.urlencoded({extended: false}));
+
 
 app.get('/', function(req, res){
     const articles = [{
@@ -17,5 +18,7 @@ app.get('/', function(req, res){
     }]
     res.render('articles/index', {articles: articles});
 });
+
+app.use('/articles', articlesRouter);
 
 app.listen(3000)
