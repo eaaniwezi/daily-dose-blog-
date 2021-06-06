@@ -22,5 +22,8 @@ app.get("/", async function (req, res) {
   res.render("articles/index", { articles: articles });
 });
 
+// app.use("/articles", articlesRouter);
+// app.listen(3000);
+
 app.use("/articles", articlesRouter);
 app.listen(3000);
